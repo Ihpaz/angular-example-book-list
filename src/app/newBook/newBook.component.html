@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div>
+        <div class="title">
+            <p>New Book !</p>
+        </div>
+        <div class="input">
+            <table cellspacing="10">
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>  
+                        <input type="text" class="s-input" [(ngModel)]="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>:</td>
+                    <td> 
+                        <input type="number" class="s-input" [(ngModel)]="year">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td> 
+                        <button mat-raised-button color="primary" (click)="addBook()">Add</button>
+                    </td>
+                </tr>
+            </table>
+           
+        </div>
+     
+    </div>
+  
+</div>

@@ -1,0 +1,25 @@
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.input{
+    width: 500px;
+    border: 1px solid #000;
+    min-height: 150px;
+}
+
+.input table{
+    margin: 0 auto;
+}
+
+.title p{
+    text-align: center;
+}
+
+.s-input{
+    width: 200px;
+}

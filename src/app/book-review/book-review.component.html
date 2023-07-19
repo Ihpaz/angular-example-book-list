@@ -1,0 +1,69 @@
+<app-new-book>
+</app-new-book>
+<br>
+
+<app-book-list>
+</app-book-list>
+<br>
+
+
+<div class="container">
+    <div>
+        <div class="title">
+            <p>{{bookReview.name}} Review</p>
+        </div>
+        <div class="input">
+          <div class="content">
+            <mat-card class="card-review" *ngFor="let dt of bookReview.review;let i= index">
+                <mat-card-header>
+                  <mat-card-title>{{dt.email}}</mat-card-title>
+                
+                </mat-card-header>
+                <mat-card-content>
+                  <p>{{dt.note}}</p>
+                </mat-card-content>
+               <mat-card-actions>
+                <p style="margin-left: 10px;"> {{dt.star}}</p>
+               </mat-card-actions>
+            </mat-card>
+           
+
+          </div>
+           
+        </div>
+     
+    </div>
+    <div>
+        <div class="title">
+            <p>New Review !</p>
+        </div>
+        <div class="input">
+            <div class="content">
+                <table cellspacing="10">
+                    <tr>
+                        <td><input type="text" class="s-input" placeholder="Email" [(ngModel)]="email"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea [(ngModel)]="note"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" class="s-input" placeholder="Rating 1-5" [(ngModel)]="star">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <button mat-raised-button color="primary" (click)="addReview()">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+           
+           
+        </div>
+     
+    </div>
+  
+</div>

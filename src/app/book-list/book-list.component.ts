@@ -17,12 +17,16 @@ export class BookListComponent {
   }
   async ngOnInit(){
  
-    await this._globalService.eventSubscribe(`loadBook`, async (isLoad: boolean) => {
-      const dtbook = await this._globalService.getBooks() ;
-      this.book =dtbook.length > 0 ? dtbook : this.book;
-    })
+    // await this._globalService.eventSubscribe(`loadBook`, async (isLoad: boolean) => {
+    //   const dtbook = await this._globalService.getBooks() ;
+    //   this.book =dtbook.length > 0 ? dtbook : this.book;
+    // })
 
-    await this._globalService.eventPublish(`loadBook`,true);
+    // await this._globalService.eventPublish(`loadBook`,true);
+
+    this._globalService.getBooks().subscribe((books) => {
+      this.book = books; // Auto-update when books change
+    });
 
     console.log(this.book,'asdas')
    
@@ -30,8 +34,7 @@ export class BookListComponent {
 
   getReview(index:number){
 
-    this._globalService.book=this.book;
-    this._globalService.ireview=index;
+    this._globalService.setReviewIndex(index);
     this._globalService.eventPublish(`loadReview`,true);
 
     return index;

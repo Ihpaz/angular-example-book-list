@@ -21,15 +21,22 @@ export class BookReviewComponent {
   }
   
   async ngOnInit(){
-   await this._globalService.eventSubscribe(`loadReview`, async (isLoad: boolean) => {
-      this.bookReview = await this._globalService.getBook();
-    })
+  //  await this._globalService.eventSubscribe(`loadReview`, async (isLoad: boolean) => {
+  //     this.bookReview = await this._globalService.getBook();
+  //   })
 
-   await this._globalService.eventPublish(`loadReview`,true);
-   console.log(this.bookReview,'asd')
-   if(this.bookReview){
-    this.name=this.bookReview.name;
-   }
+  //  await this._globalService.eventPublish(`loadReview`,true);
+  //  console.log(this.bookReview,'asd')
+  //  if(this.bookReview){
+  //   this.name=this.bookReview.name;
+  //  }
+
+  this._globalService.getReviews().subscribe((review) => {
+   
+    this.bookReview = review;
+    console.log(this.bookReview,'asdasd')
+    this.name=this.bookReview; // Auto-update when books change
+  });
   
    
   }
